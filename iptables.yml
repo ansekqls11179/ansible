@@ -1,0 +1,7 @@
+---
+- name: start iptables
+  hosts: all
+  tasks:
+    - name: start
+      shell: /root/ansible-iptables.py
+

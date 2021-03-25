@@ -1,0 +1,22 @@
+---
+- name: confirm
+  hosts: all
+  vars:
+    my_var: just
+    path: /root/variable
+  tasks:
+    - name: my_var confirm
+      debug:
+        msg: "변수 my_var값은 {{ my_var}} 이다."
+    - name: make directory
+      file:
+        path: "{{ path }}"
+        state: directory
+    - name: make file
+      file:
+        path: "{{ path }}/ansible.txt"
+        state: touch
+    - name: write
+      lineinfile:
+        path: "{{ path }}/ansible.txt"
+        line: "Good"
